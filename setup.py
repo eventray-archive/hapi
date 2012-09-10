@@ -21,6 +21,8 @@ name = 'hapi'
 requires = [
     'pyramid'
     , 'setuptools'
+    , 'waitress'
+    , 'pyramid_debugtoolbar'
 ]
 
 setup(
@@ -35,4 +37,8 @@ setup(
     , tests_require = requires + ['pytest', 'mock', 'webtest']
     , zip_safe = False
     , cmdclass = {'test': PyTest}
+    , entry_points="""\
+      [paste.app_factory]
+      main = hapi:main
+      """
 )
